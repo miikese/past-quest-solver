@@ -1,88 +1,54 @@
-# Smile Learning - Past Questions & Answers Platform
+# Smile Learning
 
-## About Smile Learning
+A responsive study interface for exploring past exam questions and answers. Built with React and TypeScript, with reusable question cards, subject views, and search and filtering controls.
 
-Smile Learning is a comprehensive educational platform designed to help students excel in their studies through access to past exam questions and detailed answers. Our mission is to transform education by providing students with the resources they need to achieve academic success.
+## Project status
+
+The repository includes static and mock study data. This is a study-interface project; the README does not imply a verified exam database, professional answer review, or production usage.
 
 ## Features
 
-- **Comprehensive Question Database**: Access to a wide variety of past exam questions across multiple subjects
-- **Detailed Answers**: Expert-written answers with explanations to help you understand concepts
-- **Smart Search & Filtering**: Find questions by subject, year, difficulty level, or keywords
-- **Responsive Design**: Study anywhere with our mobile-friendly platform
-- **Modern Interface**: Clean, intuitive design focused on learning
+- Question cards and subject-focused navigation.
+- Search and filters for finding relevant study material.
+- Responsive layout for desktop and mobile screens.
+- Reusable UI components built with shadcn/ui and Tailwind CSS.
 
-## Technologies Used
+## Technology
 
-This project is built with modern web technologies:
+React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui, and React Router.
 
-- **React 18** - Modern UI library
-- **TypeScript** - Type-safe JavaScript
-- **Vite** - Fast build tool and development server
-- **Tailwind CSS** - Utility-first CSS framework
-- **shadcn/ui** - Beautiful, accessible UI components
-- **React Router** - Client-side routing
+## Run locally
 
-## Getting Started
+Requires Node.js and npm.
 
-### Prerequisites
-
-- Node.js (version 16 or higher)
-- npm or yarn package manager
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <your-repository-url>
-cd smile-learning
-```
-
-2. Install dependencies:
-```bash
+```sh
+git clone https://github.com/miikese/past-quest-solver.git
+cd past-quest-solver
 npm install
-```
-
-3. Start the development server:
-```bash
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:8080`
+Open the local URL printed by Vite.
 
-## Project Structure
+## Development commands
 
-```
-src/
-├── components/          # Reusable UI components
-│   ├── ui/             # shadcn/ui components
-│   ├── QuestionCard.tsx # Individual question display
-│   └── SearchBar.tsx   # Search and filter functionality
-├── data/               # Static data and mock content
-├── pages/              # Page components
-├── hooks/              # Custom React hooks
-└── lib/                # Utility functions
+```sh
+npm run build    # production build
+npm run preview  # preview the build locally
+npm run lint     # static code checks
 ```
 
-## Available Scripts
+The commands above are defined in `package.json`. This documentation refresh does not certify that they pass in every environment.
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
+## Structure
 
-## Contributing
+- `src/components/`: reusable interface components, including question and search controls.
+- `src/pages/`: route-level pages.
+- `src/data/`: static and mock study material.
+- `src/hooks/` and `src/lib/`: shared interface logic and utilities.
 
-We welcome contributions to Smile Learning! Please feel free to submit issues, feature requests, or pull requests.
+## Author
 
-## License
+**Michael Ikese Emmanuel** — software engineer and programmer, project manager in training, and cybersecurity enthusiast.
 
-This project is licensed under the MIT License.
-
-## Contact
-
-For questions or support, please reach out to the Smile Learning team.
-
----
-
-**Smile Learning** - Transforming education through comprehensive study resources and academic excellence.
+[GitHub @miikese](https://github.com/miikese) · [Engineering portfolio](https://github.com/miikese/portfolio-site) · [Email](mailto:emmanlemichel2019@gmail.com)
