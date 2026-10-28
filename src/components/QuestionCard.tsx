@@ -22,7 +22,7 @@ export const QuestionCard = ({ question }: QuestionCardProps) => {
   return (
     <Card className="shadow-question hover:shadow-card transition-all duration-300 hover:-translate-y-1 bg-gradient-card border-border/50">
       <CardHeader className="pb-3">
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
           <Badge variant="secondary" className="text-xs font-medium">
             <BookOpen className="w-3 h-3 mr-1" />
             {question.subject}
@@ -62,7 +62,7 @@ export const QuestionCard = ({ question }: QuestionCardProps) => {
               className="w-full justify-between p-3 h-auto text-left hover:bg-secondary/50 transition-colors"
             >
               <span className="font-medium text-primary">
-                {isOpen ? "Hide Answer" : "Show Answer"}
+                {isOpen ? "Hide explanation" : "Show explanation"}
               </span>
               {isOpen ? (
                 <ChevronUp className="h-4 w-4 text-primary" />
@@ -76,7 +76,7 @@ export const QuestionCard = ({ question }: QuestionCardProps) => {
             <div className="p-4 bg-accent/10 rounded-lg border border-accent/20">
               <h4 className="font-semibold text-accent-foreground mb-2 flex items-center">
                 <Target className="w-4 h-4 mr-2 text-accent" />
-                Answer:
+                Sample explanation:
               </h4>
               <div className="text-sm text-foreground/90 leading-relaxed whitespace-pre-line">
                 {question.answerText}

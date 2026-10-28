@@ -25,7 +25,7 @@ const AuthPage = () => {
     const fullName = formData.get('fullName') as string;
 
     try {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -39,15 +39,15 @@ const AuthPage = () => {
 
       toast({
         title: "Account created!",
-        description: "Please check your email to verify your account.",
+        description: data?.session ? "Your account is ready." : "If verification is required, check your email before signing in.",
       });
       
-      navigate('/dashboard');
-    } catch (error: any) {
+      navigate(data?.session ? '/dashboard' : '/auth');
+    } catch (error: unknown) {
       console.error('Sign up error:', error);
       toast({
         title: "Error",
-        description: error.message || "Failed to create account. Please check your internet connection and try again.",
+        description: error instanceof Error ? error.message : "Failed to create account. Please check your internet connection and try again.",
         variant: "destructive",
       });
     } finally {
@@ -77,10 +77,10 @@ const AuthPage = () => {
       });
       
       navigate('/dashboard');
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast({
         title: "Error",
-        description: error.message || "Failed to sign in",
+        description: error instanceof Error ? error.message : "Failed to sign in",
         variant: "destructive",
       });
     } finally {
@@ -103,12 +103,13 @@ const AuthPage = () => {
           </Button>
           <div className="flex items-center gap-2 text-white">
             <BookOpen className="h-6 w-6" />
-            <span className="text-xl font-bold">EduQuest</span>
+            <span className="text-xl font-bold">Smile Learning</span>
           </div>
         </div>
 
         {/* Auth Form */}
         <div className="max-w-md mx-auto">
+          <p className="mb-5 text-white/90">Accounts need a configured Supabase service. <a className="underline" href="/questions">Browse sample questions without signing in.</a></p>
           <Tabs defaultValue="signin" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-6">
               <TabsTrigger value="signin">Sign In</TabsTrigger>
@@ -120,7 +121,7 @@ const AuthPage = () => {
                 <CardHeader>
                   <CardTitle>Welcome Back</CardTitle>
                   <CardDescription>
-                    Sign in to track your progress and continue learning
+                    Sign in to view saved account activity. Practice is also available without an account.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -128,6 +129,7 @@ const AuthPage = () => {
                     <div className="space-y-2">
                       <Label htmlFor="signin-email">Email</Label>
                       <Input
+                        autoComplete="email"
                         id="signin-email"
                         name="email"
                         type="email"
@@ -140,6 +142,7 @@ const AuthPage = () => {
                       <Label htmlFor="signin-password">Password</Label>
                       <div className="relative">
                         <Input
+                          autoComplete="current-password"
                           id="signin-password"
                           name="password"
                           type={showPassword ? "text" : "password"}
@@ -151,6 +154,8 @@ const AuthPage = () => {
                           variant="ghost"
                           size="sm"
                           className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                          aria-label={showPassword ? "Hide password" : "Show password"}
+                          aria-pressed={showPassword}
                           onClick={() => setShowPassword(!showPassword)}
                         >
                           {showPassword ? (
@@ -175,7 +180,7 @@ const AuthPage = () => {
                 <CardHeader>
                   <CardTitle>Create Account</CardTitle>
                   <CardDescription>
-                    Join thousands of students improving their knowledge
+                    Create an account when the project owner has configured account services.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -183,6 +188,7 @@ const AuthPage = () => {
                     <div className="space-y-2">
                       <Label htmlFor="signup-name">Full Name</Label>
                       <Input
+                        autoComplete="name"
                         id="signup-name"
                         name="fullName"
                         type="text"
@@ -194,6 +200,7 @@ const AuthPage = () => {
                     <div className="space-y-2">
                       <Label htmlFor="signup-email">Email</Label>
                       <Input
+                        autoComplete="email"
                         id="signup-email"
                         name="email"
                         type="email"
@@ -206,11 +213,12 @@ const AuthPage = () => {
                       <Label htmlFor="signup-password">Password</Label>
                       <div className="relative">
                         <Input
+                          autoComplete="new-password"
+                          minLength={8}
                           id="signup-password"
                           name="password"
                           type={showPassword ? "text" : "password"}
                           placeholder="••••••••"
-                          minLength={6}
                           required
                         />
                         <Button
@@ -218,6 +226,8 @@ const AuthPage = () => {
                           variant="ghost"
                           size="sm"
                           className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                          aria-label={showPassword ? "Hide password" : "Show password"}
+                          aria-pressed={showPassword}
                           onClick={() => setShowPassword(!showPassword)}
                         >
                           {showPassword ? (

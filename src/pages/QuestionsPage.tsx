@@ -55,7 +55,7 @@ const QuestionsPage = () => {
               Past Questions & Answers
             </h1>
             <p className="text-lg text-white/90">
-              Search and explore comprehensive past exam questions with detailed explanations
+              Explore sample questions and explanations. Check important answers against your course materials.
             </p>
           </div>
         </div>

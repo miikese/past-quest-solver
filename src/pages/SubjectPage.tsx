@@ -71,10 +71,10 @@ const SubjectPage = () => {
 
   const startSubjectQuiz = () => {
     // Navigate to quiz with subject filter
-    navigate(`/quiz?subject=${subject}`);
+    navigate(`/quiz?subject=${encodeURIComponent(subject || "")}`);
   };
 
-  if (!subject) {
+  if (!subject || !sampleQuestions.some(question => question.subject.toLowerCase() === subject.toLowerCase())) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <Card>
@@ -93,7 +93,7 @@ const SubjectPage = () => {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-6">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-4">
             <Button
               variant="ghost"
@@ -119,7 +119,7 @@ const SubjectPage = () => {
 
           <Button onClick={startSubjectQuiz} className="shrink-0">
             <Play className="mr-2 h-4 w-4" />
-            Start {subject} Quiz
+            Practice {subject}
           </Button>
         </div>
 
@@ -178,7 +178,7 @@ const SubjectPage = () => {
               <div className="flex-1 min-w-[200px]">
                 <label className="text-sm font-medium mb-2 block">Year</label>
                 <Select value={selectedYear} onValueChange={setSelectedYear}>
-                  <SelectTrigger>
+                  <SelectTrigger aria-label="Sample year">
                     <SelectValue placeholder="All years" />
                   </SelectTrigger>
                   <SelectContent>
@@ -193,7 +193,7 @@ const SubjectPage = () => {
               <div className="flex-1 min-w-[200px]">
                 <label className="text-sm font-medium mb-2 block">Difficulty</label>
                 <Select value={selectedDifficulty} onValueChange={setSelectedDifficulty}>
-                  <SelectTrigger>
+                  <SelectTrigger aria-label="Difficulty">
                     <SelectValue placeholder="All difficulties" />
                   </SelectTrigger>
                   <SelectContent>

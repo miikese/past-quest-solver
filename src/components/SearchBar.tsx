@@ -36,6 +36,7 @@ export const SearchBar = ({
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
           <Input
+            aria-label="Search questions, answers or tags"
             placeholder="Search questions..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -44,7 +45,7 @@ export const SearchBar = ({
         </div>
         
         <Select value={selectedSubject} onValueChange={setSelectedSubject}>
-          <SelectTrigger className="bg-background border-border focus:border-primary focus:ring-primary/20">
+          <SelectTrigger aria-label="Subject" className="bg-background border-border focus:border-primary focus:ring-primary/20">
             <SelectValue placeholder="Subject" />
           </SelectTrigger>
           <SelectContent>
@@ -57,7 +58,7 @@ export const SearchBar = ({
         </Select>
         
         <Select value={selectedYear} onValueChange={setSelectedYear}>
-          <SelectTrigger className="bg-background border-border focus:border-primary focus:ring-primary/20">
+          <SelectTrigger aria-label="Sample year" className="bg-background border-border focus:border-primary focus:ring-primary/20">
             <SelectValue placeholder="Year" />
           </SelectTrigger>
           <SelectContent>
@@ -71,7 +72,7 @@ export const SearchBar = ({
         </Select>
         
         <Select value={selectedDifficulty} onValueChange={setSelectedDifficulty}>
-          <SelectTrigger className="bg-background border-border focus:border-primary focus:ring-primary/20">
+          <SelectTrigger aria-label="Difficulty" className="bg-background border-border focus:border-primary focus:ring-primary/20">
             <SelectValue placeholder="Difficulty" />
           </SelectTrigger>
           <SelectContent>

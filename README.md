@@ -9,6 +9,9 @@ The repository includes static and mock study data. This is a study-interface pr
 ## Features
 
 - Question cards and subject-focused navigation.
+- Guest practice sessions use stable, shuffled subject-specific questions and honest self-assessment, rather than fabricated multiple-choice distractors or automatically verified scores.
+- Practice responses exist only in the current page session; leaving or restarting clears them.
+- Optional Supabase account screens handle failed account/history requests with recovery controls. Historical responses are labeled separately from current practice.
 - Search and filters for finding relevant study material.
 - Responsive layout for desktop and mobile screens.
 - Reusable UI components built with shadcn/ui and Tailwind CSS.
@@ -36,9 +39,14 @@ Open the local URL printed by Vite.
 npm run build    # production build
 npm run preview  # preview the build locally
 npm run lint     # static code checks
+npm test         # practice selection and account error-handling regressions
 ```
 
 The commands above are defined in `package.json`. This documentation refresh does not certify that they pass in every environment.
+
+## Optional accounts
+
+Question browsing and self-assessment work without account services. To enable accounts, configure `VITE_SUPABASE_URL` and the public `VITE_SUPABASE_ANON_KEY` before building. Never place a service-role key in the frontend. The account history screen expects the existing `user_answers` table and authenticated row-level access policies; this repository does not provision a production Supabase database. Without configuration, account forms report that the service is unavailable. Practice does not write graded results or award points.
 
 ## Structure
 

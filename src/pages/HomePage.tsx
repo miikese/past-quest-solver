@@ -1,244 +1,35 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { GraduationCap, BookOpen, Search, Zap, Target, Users, Award } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { BookOpen, Search, GraduationCap, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { sampleQuestions } from '@/data/questions';
 
-const HomePage = () => {
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <header className="bg-gradient-hero text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative container mx-auto px-4 py-16 lg:py-24">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="flex justify-center mb-6">
-              <div className="p-4 bg-white/10 backdrop-blur-sm rounded-2xl">
-                <GraduationCap className="w-16 h-16 text-white" />
-              </div>
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Welcome to Smile Learning
-            </h1>
-            
-            <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
-              Your journey to academic excellence starts here with comprehensive past questions, expert answers, and AI-powered learning assistance
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button 
-                asChild
-                size="lg" 
-                className="bg-white text-primary hover:bg-white/90 px-8 py-3 text-lg font-semibold transition-smooth"
-              >
-                <Link to="/auth">
-                  <Search className="w-5 h-5 mr-2" />
-                  Start Learning
-                </Link>
-              </Button>
-              
-              <Button 
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary px-8 py-3 text-lg font-semibold transition-smooth"
-              >
-                <Link to="/introduction">
-                  Learn More
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Problem Statement Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Solving Real Educational Challenges
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Students worldwide struggle to access quality past exam questions and detailed explanations. 
-              Traditional study methods often leave gaps in understanding and preparation.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="text-center">
-              <CardHeader>
-                <Target className="w-12 h-12 text-primary mx-auto mb-4" />
-                <CardTitle>The Problem</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">
-                  Limited access to comprehensive past exam questions and quality explanations 
-                  hinders student preparation and academic success.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                <CardTitle>AI-Powered Solution</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">
-                  Leveraging AI for intelligent content curation, smart search, 
-                  and personalized learning recommendations to enhance study efficiency.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardHeader>
-                <Award className="w-12 h-12 text-primary mx-auto mb-4" />
-                <CardTitle>Impact</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">
-                  Democratizing access to quality educational resources and 
-                  improving academic outcomes for students globally.
-                </CardDescription>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              How Smile Learning Works
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Advanced features powered by AI to transform your learning experience
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <Card>
-              <CardHeader>
-                <BookOpen className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>Comprehensive Question Bank</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Access thousands of past exam questions across multiple subjects, 
-                  years, and difficulty levels, all organized and searchable.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <Search className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>AI-Powered Search</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Find relevant questions instantly with intelligent search that 
-                  understands context and learning objectives.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <Users className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>Expert Explanations</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Get detailed, step-by-step solutions and explanations to help 
-                  you understand concepts and improve your problem-solving skills.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <Zap className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>Smart Filtering</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Filter questions by subject, year, difficulty, and tags to 
-                  create personalized study sessions that match your needs.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <GraduationCap className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>Progress Tracking</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Monitor your learning progress and identify areas that need 
-                  more attention with AI-driven analytics.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <Target className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>Adaptive Learning</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Receive personalized question recommendations based on your 
-                  performance and learning patterns.
-                </CardDescription>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Transform Your Learning?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Join thousands of students who are already improving their academic performance with Smile Learning
-          </p>
-          <Button 
-            asChild
-            size="lg"
-            variant="secondary"
-            className="px-8 py-3 text-lg font-semibold"
-          >
-            <Link to="/questions">
-              <BookOpen className="w-5 h-5 mr-2" />
-              Explore Questions Now
-            </Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-muted/30 border-t border-border">
-        <div className="container mx-auto px-4 py-8 text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <GraduationCap className="w-6 h-6 text-primary" />
-            <span className="font-bold text-xl text-foreground">Smile Learning</span>
-          </div>
-          <p className="text-muted-foreground">
-            Transforming education through AI-powered learning resources and academic excellence
-          </p>
-        </div>
-      </footer>
-    </div>
-  );
-};
-
+const subjects = [...new Set(sampleQuestions.map(question => question.subject))];
+const HomePage = () => (
+  <div className="min-h-screen bg-background">
+    <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-4">Skip to content</a>
+    <header className="bg-gradient-hero text-white">
+      <nav aria-label="Main navigation" className="container mx-auto px-4 py-6 flex flex-wrap justify-between gap-4">
+        <Link to="/" className="flex items-center gap-2 font-bold text-xl"><GraduationCap aria-hidden="true" />Smile Learning</Link>
+        <div className="flex gap-5"><Link to="/questions">Question library</Link><Link to="/quiz">Practice</Link><Link to="/auth">Account</Link></div>
+      </nav>
+      <div className="container mx-auto px-4 pt-12 pb-20 max-w-5xl">
+        <p className="uppercase tracking-widest text-sm mb-5 text-white/80">A study interface by Michael Ikese Emmanuel</p>
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight max-w-3xl mb-6">A little practice.<br />A clearer understanding.</h1>
+        <p className="text-lg text-white/90 max-w-2xl mb-8">Explore sample questions, compare explanations and spend time on the topics that need another look. Start studying without an account.</p>
+        <div className="flex flex-wrap gap-4"><Button asChild size="lg" className="bg-white text-primary hover:bg-white/90"><Link to="/questions">Explore questions<ArrowRight className="ml-2 h-4 w-4" /></Link></Button><Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10"><Link to="/quiz">Start a practice session</Link></Button></div>
+      </div>
+    </header>
+    <main id="main" className="container mx-auto px-4 py-12 space-y-12">
+      <section aria-label="About the study material" className="rounded-xl border bg-muted/40 p-6"><h2 className="font-semibold mb-2">A learning prototype, open to explore</h2><p className="text-muted-foreground">{sampleQuestions.length} sample questions across {subjects.length} subjects. This material is for practice and has not been independently reviewed as an official exam bank. Check important answers against your course materials.</p></section>
+      <section><h2 className="text-2xl font-bold mb-6">Build your own study rhythm</h2><div className="grid md:grid-cols-3 gap-5">{[
+        { icon: Search, title: 'Find a useful starting point', text: 'Search question text, answers and topic tags. Filter by subject, sample year and difficulty.' },
+        { icon: BookOpen, title: 'Think before you reveal', text: 'Try each question, reveal its sample explanation and compare it with your own reasoning.' },
+        { icon: GraduationCap, title: 'Reflect on your understanding', text: 'Use a short self-assessment session to separate familiar topics from those you want to revisit.' }
+      ].map(item => <Card key={item.title}><CardHeader><item.icon className="text-primary mb-2" aria-hidden="true" /><CardTitle className="text-lg">{item.title}</CardTitle></CardHeader><CardContent className="text-muted-foreground">{item.text}</CardContent></Card>)}</div></section>
+      <section><h2 className="text-2xl font-bold mb-5">Choose a subject</h2><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{subjects.map(subject => <Link className="flex items-center justify-between rounded-xl border p-5 hover:bg-muted focus-visible:outline focus-visible:outline-primary" key={subject} to={`/subject/${encodeURIComponent(subject)}`}><span>{subject}</span><ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>)}</div></section>
+    </main>
+    <footer className="border-t py-8"><div className="container mx-auto px-4 flex flex-wrap gap-4 justify-between text-sm text-muted-foreground"><p>Smile Learning · React & TypeScript study prototype</p><a href="https://github.com/miikese/past-quest-solver" className="underline">Explore the source on GitHub</a></div></footer>
+  </div>
+);
 export default HomePage;
